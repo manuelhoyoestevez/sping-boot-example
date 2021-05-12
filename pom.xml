@@ -104,7 +104,7 @@
 
 							<generatorName>spring</generatorName>
 							<apiPackage>com.example.springboot.api</apiPackage>
-							<modelPackage>com.example.springboot.model</modelPackage>
+							<modelPackage>com.example.springboot.dto</modelPackage>
 							<supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
 							<configOptions>
 								<sourceFolder>src/main/java/</sourceFolder>
