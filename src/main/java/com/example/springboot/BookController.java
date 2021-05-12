@@ -1,7 +1,7 @@
 package com.example.springboot;
 
 import com.example.springboot.api.BookApi;
-import com.example.springboot.model.BookDto;
+import com.example.springboot.dto.BookDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
