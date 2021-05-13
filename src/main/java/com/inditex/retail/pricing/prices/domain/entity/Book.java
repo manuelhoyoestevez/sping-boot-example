@@ -1,4 +1,4 @@
-package com.example.springboot.model;
+package com.inditex.retail.pricing.prices.domain.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

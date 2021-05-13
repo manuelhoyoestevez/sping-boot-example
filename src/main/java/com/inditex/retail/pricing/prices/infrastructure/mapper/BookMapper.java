@@ -1,7 +1,7 @@
-package com.example.springboot.mapper;
+package com.inditex.retail.pricing.prices.infrastructure.mapper;
 
-import com.example.springboot.dto.BookDto;
-import com.example.springboot.model.Book;
+import com.inditex.retail.pricing.prices.domain.entity.Book;
+import com.inditex.retail.pricing.prices.infrastructure.dto.BookDto;
 
 public class BookMapper {
     private static BookMapper instance = null;

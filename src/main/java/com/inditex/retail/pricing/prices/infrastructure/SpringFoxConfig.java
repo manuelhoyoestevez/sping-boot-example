@@ -1,4 +1,4 @@
-package com.example.springboot;
+package com.inditex.retail.pricing.prices.infrastructure;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +17,7 @@ public class SpringFoxConfig {
                 .select()
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
+                //.apis(RequestHandlerSelectors.basePackage("com.inditex.retail.pricing.prices.infrastructure.controller"))
                 .build();
     }
 }

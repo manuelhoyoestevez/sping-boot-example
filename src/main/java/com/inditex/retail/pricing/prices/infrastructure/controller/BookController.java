@@ -1,10 +1,11 @@
-package com.example.springboot.controller;
+package com.inditex.retail.pricing.prices.infrastructure.controller;
 
-import com.example.springboot.api.BookApi;
-import com.example.springboot.dto.BookDto;
-import com.example.springboot.mapper.BookMapper;
-import com.example.springboot.model.Book;
-import com.example.springboot.service.BookService;
+import com.inditex.retail.pricing.prices.core.service.BookService;
+import com.inditex.retail.pricing.prices.domain.entity.Book;
+import com.inditex.retail.pricing.prices.infrastructure.api.BookApi;
+import com.inditex.retail.pricing.prices.infrastructure.dto.BookDto;
+import com.inditex.retail.pricing.prices.infrastructure.mapper.BookMapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,8 +25,8 @@ public class BookController implements BookApi {
     @Override
     public ResponseEntity<String> addBook(BookDto bookDto) {
         Book book = bookMapper.fromDto(bookDto);
-        bookService.save(book);
-        return ResponseEntity.ok(book.getTitle() + " is added");
+        Book savedBook = bookService.saveBook(book);
+        return ResponseEntity.ok(savedBook.getTitle() + " is added");
     }
 
     @Override

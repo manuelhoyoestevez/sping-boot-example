@@ -6,13 +6,13 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.4.5</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>com.inditex.retail.pricing</groupId>
+	<artifactId>prices</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Prices</name>
+	<description>Pricing service for Inditex</description>
 	<properties>
 		<java.version>11</java.version>
 		<springfox-version>2.9.2</springfox-version>
@@ -96,15 +96,13 @@
 						</goals>
 						<configuration>
 							<inputSpec>${project.basedir}/src/main/resources/openapi.yml</inputSpec>
-
 							<output>./</output>
 							<modelNameSuffix>Dto</modelNameSuffix>
 							<generateApiDocumentation>true</generateApiDocumentation>
 							<generateModelDocumentation>true</generateModelDocumentation>
-
 							<generatorName>spring</generatorName>
-							<apiPackage>com.example.springboot.api</apiPackage>
-							<modelPackage>com.example.springboot.dto</modelPackage>
+							<apiPackage>${project.groupId}.${project.artifactId}.infrastructure.api</apiPackage>
+							<modelPackage>${project.groupId}.${project.artifactId}.infrastructure.dto</modelPackage>
 							<supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
 							<configOptions>
 								<sourceFolder>src/main/java/</sourceFolder>
