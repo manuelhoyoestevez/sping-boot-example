@@ -1,4 +1,4 @@
-package com.inditex.retail.pricing.prices.infrastructure.repository;
+package com.inditex.retail.pricing.prices.infrastructure.rest.spring.repository;
 
 import com.inditex.retail.pricing.prices.core.repository.BookRepository;
 import com.inditex.retail.pricing.prices.core.model.Book;

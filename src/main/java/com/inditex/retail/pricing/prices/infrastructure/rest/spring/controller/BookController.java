@@ -1,10 +1,10 @@
-package com.inditex.retail.pricing.prices.infrastructure.controller;
+package com.inditex.retail.pricing.prices.infrastructure.rest.spring.controller;
 
 import com.inditex.retail.pricing.prices.core.service.BookService;
 import com.inditex.retail.pricing.prices.core.model.Book;
-import com.inditex.retail.pricing.prices.infrastructure.api.BookApi;
-import com.inditex.retail.pricing.prices.infrastructure.dto.BookDto;
-import com.inditex.retail.pricing.prices.infrastructure.mapper.BookMapper;
+import com.inditex.retail.pricing.prices.infrastructure.rest.spring.api.BookApi;
+import com.inditex.retail.pricing.prices.infrastructure.rest.spring.dto.BookDto;
+import com.inditex.retail.pricing.prices.infrastructure.rest.spring.mapper.BookMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

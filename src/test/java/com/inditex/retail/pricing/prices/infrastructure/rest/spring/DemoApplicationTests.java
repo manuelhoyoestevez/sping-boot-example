@@ -1,4 +1,4 @@
-package com.inditex.retail.pricing.prices.infrastructure;
+package com.inditex.retail.pricing.prices.infrastructure.rest.spring;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

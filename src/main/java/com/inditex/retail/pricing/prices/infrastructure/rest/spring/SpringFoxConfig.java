@@ -1,4 +1,4 @@
-package com.inditex.retail.pricing.prices.infrastructure;
+package com.inditex.retail.pricing.prices.infrastructure.rest.spring;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,7 @@ public class SpringFoxConfig {
     public Docket apiDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.inditex.retail.pricing.prices.infrastructure.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.inditex.retail.pricing.prices.infrastructure.rest.spring.controller"))
                 .build();
     }
 }

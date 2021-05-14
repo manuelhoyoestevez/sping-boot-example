@@ -1,8 +1,8 @@
-package com.inditex.retail.pricing.prices.infrastructure.mapper;
+package com.inditex.retail.pricing.prices.infrastructure.rest.spring.mapper;
 
 import com.inditex.retail.pricing.prices.core.model.Book;
 import com.inditex.retail.pricing.prices.infrastructure.entity.BookEntity;
-import com.inditex.retail.pricing.prices.infrastructure.dto.BookDto;
+import com.inditex.retail.pricing.prices.infrastructure.rest.spring.dto.BookDto;
 
 public class BookMapper {
     private static BookMapper instance = null;

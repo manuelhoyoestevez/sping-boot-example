@@ -15,34 +15,45 @@
 	<description>Pricing service for Inditex</description>
 	<properties>
 		<java.version>11</java.version>
+		<spring-data-commons-version>2.4.8</spring-data-commons-version>
+		<spring-boot-starter-version>2.4.5</spring-boot-starter-version>
 		<springfox-version>2.9.2</springfox-version>
+		<h2-version>1.4.200</h2-version>
+		<jackson-databind-nullable-version>0.2.1</jackson-databind-nullable-version>
+		<validation-api-version>2.0.1.Final</validation-api-version>
+		<openapi-generator-maven-plugin-version>5.1.0</openapi-generator-maven-plugin-version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring-boot-starter-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
+			<version>${spring-boot-starter-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<version>${spring-boot-starter-version}</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-annotations</artifactId>
-			<version>1.6.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-commons</artifactId>
+			<version>${spring-data-commons-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openapitools</groupId>
+			<artifactId>jackson-databind-nullable</artifactId>
+			<version>${jackson-databind-nullable-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -50,45 +61,17 @@
 			<version>${springfox-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>${springfox-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>
-			<version>2.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.datatype</groupId>
-			<artifactId>jackson-datatype-jsr310</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.openapitools</groupId>
-			<artifactId>jackson-databind-nullable</artifactId>
-			<version>0.2.1</version>
-		</dependency>
-		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
+			<version>${validation-api-version}</version>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>2.4.5</version>
-			</plugin>
-			<plugin>
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
-				<version>5.1.0</version>
+				<version>${openapi-generator-maven-plugin-version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -101,8 +84,8 @@
 							<generateApiDocumentation>true</generateApiDocumentation>
 							<generateModelDocumentation>true</generateModelDocumentation>
 							<generatorName>spring</generatorName>
-							<apiPackage>${project.groupId}.${project.artifactId}.infrastructure.api</apiPackage>
-							<modelPackage>${project.groupId}.${project.artifactId}.infrastructure.dto</modelPackage>
+							<apiPackage>${project.groupId}.${project.artifactId}.infrastructure.rest.spring.api</apiPackage>
+							<modelPackage>${project.groupId}.${project.artifactId}.infrastructure.rest.spring.dto</modelPackage>
 							<supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
 							<configOptions>
 								<sourceFolder>src/main/java/</sourceFolder>
@@ -115,5 +98,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
