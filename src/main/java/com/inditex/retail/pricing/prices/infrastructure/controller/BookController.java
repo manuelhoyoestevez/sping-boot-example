@@ -1,7 +1,7 @@
 package com.inditex.retail.pricing.prices.infrastructure.controller;
 
 import com.inditex.retail.pricing.prices.core.service.BookService;
-import com.inditex.retail.pricing.prices.domain.entity.Book;
+import com.inditex.retail.pricing.prices.core.model.Book;
 import com.inditex.retail.pricing.prices.infrastructure.api.BookApi;
 import com.inditex.retail.pricing.prices.infrastructure.dto.BookDto;
 import com.inditex.retail.pricing.prices.infrastructure.mapper.BookMapper;

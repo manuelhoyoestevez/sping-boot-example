@@ -1,12 +1,12 @@
 package com.inditex.retail.pricing.prices.core.service;
 
 import com.inditex.retail.pricing.prices.core.repository.BookRepository;
-import com.inditex.retail.pricing.prices.domain.entity.Book;
+import com.inditex.retail.pricing.prices.core.model.Book;
 
 import java.util.List;
 
 public class BookServiceImpl implements BookService {
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
 
     public BookServiceImpl(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
@@ -14,11 +14,11 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book saveBook(Book book) {
-        return bookRepository.save(book);
+        return bookRepository.insert(book);
     }
 
     @Override
     public List<Book> getBooks() {
-        return bookRepository.findAll();
+        return bookRepository.selectAll();
     }
 }

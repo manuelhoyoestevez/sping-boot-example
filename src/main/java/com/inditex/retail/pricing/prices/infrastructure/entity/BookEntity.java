@@ -1,4 +1,6 @@
-package com.inditex.retail.pricing.prices.domain.entity;
+package com.inditex.retail.pricing.prices.infrastructure.entity;
+
+import com.inditex.retail.pricing.prices.core.model.Book;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Book {
+public class BookEntity implements Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -19,7 +21,7 @@ public class Book {
         return id;
     }
 
-    public Book setId(Long id) {
+    public BookEntity setId(Long id) {
         this.id = id;
         return this;
     }
@@ -28,7 +30,7 @@ public class Book {
         return title;
     }
 
-    public Book setTitle(String title) {
+    public BookEntity setTitle(String title) {
         this.title = title;
         return this;
     }
@@ -37,8 +39,19 @@ public class Book {
         return author;
     }
 
-    public Book setAuthor(String author) {
+    public BookEntity setAuthor(String author) {
         this.author = author;
         return this;
+    }
+
+    public static BookEntity fromBook(Book book) {
+        if (book instanceof BookEntity) {
+            return (BookEntity) book;
+        }
+
+        return new BookEntity()
+                .setId(book.getId())
+                .setTitle(book.getTitle())
+                .setAuthor(book.getAuthor());
     }
 }

@@ -1,11 +1,10 @@
 package com.inditex.retail.pricing.prices.core.repository;
 
-import com.inditex.retail.pricing.prices.domain.entity.Book;
+import com.inditex.retail.pricing.prices.core.model.Book;
 
 import java.util.List;
 
 public interface BookRepository {
-    List<Book> findAll();
-
-    Book save(Book account);
+    Book insert(Book book);
+    List<Book> selectAll();
 }

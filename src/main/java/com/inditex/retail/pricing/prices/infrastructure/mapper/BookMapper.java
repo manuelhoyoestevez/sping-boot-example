@@ -1,6 +1,7 @@
 package com.inditex.retail.pricing.prices.infrastructure.mapper;
 
-import com.inditex.retail.pricing.prices.domain.entity.Book;
+import com.inditex.retail.pricing.prices.core.model.Book;
+import com.inditex.retail.pricing.prices.infrastructure.entity.BookEntity;
 import com.inditex.retail.pricing.prices.infrastructure.dto.BookDto;
 
 public class BookMapper {
@@ -16,9 +17,8 @@ public class BookMapper {
 
     private BookMapper() {}
 
-
-    public Book fromDto(BookDto bookDto) {
-        return new Book()
+    public BookEntity fromDto(BookDto bookDto) {
+        return new BookEntity()
                 .setId(bookDto.getId())
                 .setAuthor(bookDto.getAuthor())
                 .setTitle(bookDto.getTitle());
