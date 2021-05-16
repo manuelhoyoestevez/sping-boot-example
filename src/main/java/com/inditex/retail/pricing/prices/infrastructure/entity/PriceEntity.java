@@ -8,9 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
 import java.time.Instant;
 
 @Entity
+@Table(name = "PRICES")
 public class PriceEntity implements Price {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -55,43 +58,7 @@ public class PriceEntity implements Price {
 
     public Cost getCost() {
         Currency currency = Currency.valueOf(this.currency);
-        Double amount = currency.toDouble(this.amount);
+        Double amount = CostService.getInstance().toDouble(currency, this.amount);
         return new Cost(amount, currency);
-    }
-
-    public PriceEntity setId(Long id) {
-        this.id = id;
-        return this;
-    }
-
-    public PriceEntity setBrandId(Long brandId) {
-        this.brandId = brandId;
-        return this;
-    }
-
-    public PriceEntity setProductId(Long productId) {
-        this.productId = productId;
-        return this;
-    }
-
-    public PriceEntity setPriority(Long priority) {
-        this.priority = priority;
-        return this;
-    }
-
-    public PriceEntity setStartDate(Instant startDate) {
-        this.startDate = startDate;
-        return this;
-    }
-
-    public PriceEntity setEndDate(Instant endDate) {
-        this.endDate = endDate;
-        return this;
-    }
-
-    public PriceEntity setCost(Cost cost) {
-        this.currency = cost.getCurrency().name();
-        this.amount = cost.getCurrency().toLong(cost.getAmount());
-        return this;
     }
 }

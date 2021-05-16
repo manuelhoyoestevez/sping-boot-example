@@ -26,12 +26,4 @@ public enum Currency {
     public Integer getDecimalPlaces() {
         return decimalPlaces;
     }
-
-    public Long toLong(Double amount) {
-        return Math.round(amount * Math.pow(10, this.getDecimalPlaces()));
-    }
-
-    public Double toDouble(Long amount) {
-        return (double) amount / Math.pow(10, this.getDecimalPlaces());
-    }
 }

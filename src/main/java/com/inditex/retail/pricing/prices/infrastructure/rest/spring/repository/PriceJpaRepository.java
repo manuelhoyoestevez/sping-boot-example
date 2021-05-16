@@ -19,6 +19,6 @@ public interface PriceJpaRepository extends PriceRepository, JpaRepository<Price
     List<PriceEntity> findPriceEntities(@Param("date") Instant date, @Param("productId") Long productId, @Param("brandId") Long brandId);
 
     default List<Price> findPrices(Instant date, Long productId, Long brandId) {
-        return new ArrayList<>(this.findPriceEntities(date, productId, brandId));
+        return new ArrayList<>(findPriceEntities(date, productId, brandId));
     }
 }

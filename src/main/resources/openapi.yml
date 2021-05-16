@@ -33,11 +33,13 @@ paths:
 
       responses:
         200:
-          description: successful operation
+          description: Price found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Price'
+        404:
+          description: Price not found
 components:
   schemas:
     Price:
@@ -73,5 +75,5 @@ components:
         price:
           type: number
           format: float
-          description: Price amount in currency abobe. For security reasons, this value will be rounded to the fractional part admitted by the currency
+          description: Price amount in currency abobe. For security reasons, this value will be rounded to the fractional palces admitted by the currency
           example: 17.95

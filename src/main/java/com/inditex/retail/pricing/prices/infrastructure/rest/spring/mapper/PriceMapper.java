@@ -1,6 +1,6 @@
 package com.inditex.retail.pricing.prices.infrastructure.rest.spring.mapper;
 
-import com.inditex.retail.pricing.prices.infrastructure.entity.PriceEntity;
+import com.inditex.retail.pricing.prices.core.model.Price;
 import com.inditex.retail.pricing.prices.infrastructure.rest.spring.dto.PriceDto;
 
 import java.time.ZoneOffset;
@@ -18,12 +18,14 @@ public class PriceMapper {
 
     private PriceMapper() {}
 
-    public PriceDto toDto(PriceEntity priceEntity) {
+    public PriceDto toDto(Price price) {
         return new PriceDto()
-                .id(priceEntity.getId())
-                .productId(priceEntity.getProductId())
-                .brandId(priceEntity.getBrandId())
-                .startDate(priceEntity.getStartDate().atOffset(ZoneOffset.UTC))
-                .endDate(priceEntity.getEndDate().atOffset(ZoneOffset.UTC));
+                .id(price.getId())
+                .productId(price.getProductId())
+                .brandId(price.getBrandId())
+                .startDate(price.getStartDate().atOffset(ZoneOffset.UTC))
+                .endDate(price.getEndDate().atOffset(ZoneOffset.UTC))
+                .price(price.getCost().getAmount().floatValue())
+                .currency(PriceDto.CurrencyEnum.valueOf(price.getCost().getCurrency().name()));
     }
 }
