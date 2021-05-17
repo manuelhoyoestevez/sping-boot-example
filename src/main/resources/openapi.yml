@@ -4,10 +4,22 @@ info:
   description: Inditex Retail Prices Service API
   version: 1.0.
 paths:
-  /price/{brandId}/{productId}/{date}:
+  /prices:
     get:
-      operationId: getPrice
-      summary: Get Price
+      operationId: getPrices
+      responses:
+        200:
+          description: Price found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Price'
+  /prices/{brandId}/{productId}/{date}:
+    get:
+      operationId: findPrice
+      summary: Find one price
       parameters:
           - in: path
             name: brandId

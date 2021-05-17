@@ -2,22 +2,34 @@ package com.inditex.retail.pricing.prices.infrastructure.rest.spring.controller;
 
 import com.inditex.retail.pricing.prices.core.model.Price;
 import com.inditex.retail.pricing.prices.core.service.PriceService;
-import com.inditex.retail.pricing.prices.infrastructure.rest.spring.api.PriceApi;
+import com.inditex.retail.pricing.prices.infrastructure.rest.spring.api.PricesApi;
 import com.inditex.retail.pricing.prices.infrastructure.rest.spring.dto.PriceDto;
 import com.inditex.retail.pricing.prices.infrastructure.rest.spring.mapper.PriceMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
-public class PriceController implements PriceApi {
+public class PriceController implements PricesApi {
+    @Autowired
     private PriceMapper priceMapper;
+
+    @Autowired
     private PriceService priceService;
 
-    public ResponseEntity<PriceDto> getPrice(Long brandId, Long productId, OffsetDateTime date) {
+    public ResponseEntity<List<PriceDto>> getPrices() {
+        List<Price> prices = priceService.getAllPrices();
+        List<PriceDto> priceDtos = prices.stream().map(priceMapper::toDto).collect(Collectors.toList());
+        return new ResponseEntity<>(priceDtos, HttpStatus.OK);
+    }
+
+    public ResponseEntity<PriceDto> findPrice(Long brandId, Long productId, OffsetDateTime date) {
         Optional<Price> optionalPrice = priceService.findPrice(date.toInstant(), productId, brandId);
 
         if (optionalPrice.isEmpty()) {

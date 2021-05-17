@@ -25,7 +25,7 @@ public class PriceMapper {
                 .brandId(price.getBrandId())
                 .startDate(price.getStartDate().atOffset(ZoneOffset.UTC))
                 .endDate(price.getEndDate().atOffset(ZoneOffset.UTC))
-                .price(price.getCost().getAmount().floatValue())
-                .currency(PriceDto.CurrencyEnum.valueOf(price.getCost().getCurrency().name()));
+                .price(price.getCost().getNumber().floatValue())
+                .currency(PriceDto.CurrencyEnum.valueOf(price.getCost().getCurrency().getCurrencyCode()));
     }
 }

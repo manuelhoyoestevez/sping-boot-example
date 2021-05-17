@@ -1,5 +1,6 @@
 package com.inditex.retail.pricing.prices.core.model;
 
+import javax.money.MonetaryAmount;
 import java.time.Instant;
 
 public interface Price {
@@ -15,5 +16,5 @@ public interface Price {
 
     Instant getEndDate();
 
-    Cost getCost();
+    MonetaryAmount getCost();
 }

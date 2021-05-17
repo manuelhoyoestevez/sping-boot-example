@@ -14,6 +14,10 @@ public class PriceServiceImpl implements PriceService {
         this.priceRepository = priceRepository;
     }
 
+    public List<Price> getAllPrices() {
+        return this.priceRepository.getAllPrices();
+    }
+
     @Override
     public Optional<Price> findPrice(Instant date, Long productId, Long brandId) {
         List<Price> prices = priceRepository.findPrices(date, productId, brandId);

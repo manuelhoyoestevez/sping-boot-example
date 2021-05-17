@@ -5,7 +5,7 @@ management:
 spring:
   server:
     protocol: http
-    url: localhost:8087
+    url: localhost:8080
   data:
     jpa.repositories.enabled: true
   h2:
