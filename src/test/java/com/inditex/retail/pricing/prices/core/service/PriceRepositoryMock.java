@@ -2,6 +2,7 @@ package com.inditex.retail.pricing.prices.core.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.inditex.retail.pricing.prices.core.model.Price;
 import com.inditex.retail.pricing.prices.core.repository.PriceRepository;
 import com.inditex.retail.pricing.prices.infrastructure.entity.PriceEntity;
@@ -22,12 +23,10 @@ public class PriceRepositoryMock implements PriceRepository {
     private List<Price> prices;
 
     public PriceRepositoryMock() throws IOException {
-        /*
-        objectMapper = new ObjectMapper();
+        objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
         File resource = ResourceUtils.getFile("classpath:data.json");
         String data = new String(Files.readAllBytes(resource.toPath()));
         prices = new ArrayList<>(objectMapper.readValue(data, new TypeReference<List<PriceEntity>>(){}));
-         */
     }
 
     @Override
