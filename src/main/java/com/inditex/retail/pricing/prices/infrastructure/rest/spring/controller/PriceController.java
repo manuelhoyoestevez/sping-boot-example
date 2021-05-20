@@ -5,7 +5,6 @@ import com.inditex.retail.pricing.prices.core.service.PriceService;
 import com.inditex.retail.pricing.prices.infrastructure.rest.spring.api.PricesApi;
 import com.inditex.retail.pricing.prices.infrastructure.rest.spring.dto.PriceDto;
 import com.inditex.retail.pricing.prices.infrastructure.rest.spring.mapper.PriceMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,11 +16,14 @@ import java.util.stream.Collectors;
 
 @RestController
 public class PriceController implements PricesApi {
-    @Autowired
     private PriceMapper priceMapper;
 
-    @Autowired
     private PriceService priceService;
+
+    public PriceController(PriceMapper priceMapper, PriceService priceService) {
+        this.priceMapper = priceMapper;
+        this.priceService = priceService;
+    }
 
     public ResponseEntity<List<PriceDto>> getPrices() {
         List<Price> prices = priceService.getAllPrices();

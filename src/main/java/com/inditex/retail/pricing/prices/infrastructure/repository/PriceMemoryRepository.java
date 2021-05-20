@@ -1,4 +1,4 @@
-package com.inditex.retail.pricing.prices.infrastructure.rest.memory.repository;
+package com.inditex.retail.pricing.prices.infrastructure.repository;
 
 import com.inditex.retail.pricing.prices.core.model.Price;
 import com.inditex.retail.pricing.prices.core.repository.PriceRepository;
@@ -21,12 +21,11 @@ public class PriceMemoryRepository implements PriceRepository {
 
     @Override
     public List<Price> findPrices(Instant date, Long productId, Long brandId) {
-        return prices.stream().filter(
-                price ->
-                        price.getProductId().equals(productId) &&
-                                price.getBrandId().equals(brandId) &&
-                                price.getStartDate().isBefore(date) &&
-                                price.getEndDate().isAfter(date)
+        return prices.stream().filter(price ->
+                price.getProductId().equals(productId) &&
+                price.getBrandId().equals(brandId) &&
+                price.getStartDate().isBefore(date) &&
+                price.getEndDate().isAfter(date)
         ).collect(Collectors.toList());
     }
 }

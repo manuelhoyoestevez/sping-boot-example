@@ -5,8 +5,8 @@ CREATE TABLE prices (
   product_id INT NOT NULL,
   brand_id INT NOT NULL,
   priority INT NOT NULL,
-  start_date TIMESTAMP NOT NULL,
-  end_date TIMESTAMP NOT NULL,
+  start_date TIMESTAMP WITH TIME ZONE NOT NULL,
+  end_date TIMESTAMP WITH TIME ZONE NOT NULL,
   amount INT NOT NULL,
   currency CHAR(3) NOT NULL
 );
