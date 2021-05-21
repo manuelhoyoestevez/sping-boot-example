@@ -9,7 +9,17 @@ import java.time.Instant;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PriceMapperTest {
+public class PriceMapperTest {
+
+    public static void assertPriceAndPriceDto(Price price, PriceDto priceDto) {
+        assertEquals(price.getId(), priceDto.getId());
+        assertEquals(price.getBrandId(), priceDto.getBrandId());
+        assertEquals(price.getProductId(), priceDto.getProductId());
+        assertEquals(price.getStartDate(), priceDto.getStartDate().toInstant());
+        assertEquals(price.getEndDate(), priceDto.getEndDate().toInstant());
+        assertEquals(price.getCost().getCurrency().getCurrencyCode(), priceDto.getCurrency().name());
+        assertEquals(price.getCost().getNumber().floatValue(), priceDto.getPrice());
+    }
 
     @Test
     public void toDto() {
@@ -23,14 +33,6 @@ class PriceMapperTest {
                 .setAmount(3L)
                 .setCurrency("EUR");
 
-        PriceDto priceDto = PriceMapper.getInstance().toDto(price);
-
-        assertEquals(price.getId(), priceDto.getId());
-        assertEquals(price.getBrandId(), priceDto.getBrandId());
-        assertEquals(price.getProductId(), priceDto.getProductId());
-        assertEquals(price.getStartDate(), priceDto.getStartDate().toInstant());
-        assertEquals(price.getEndDate(), priceDto.getEndDate().toInstant());
-        assertEquals(price.getCost().getCurrency().getCurrencyCode(), priceDto.getCurrency().name());
-        assertEquals(price.getCost().getNumber().floatValue(), priceDto.getPrice());
+        assertPriceAndPriceDto(price , PriceMapper.getInstance().toDto(price));
     }
 }

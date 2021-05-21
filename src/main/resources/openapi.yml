@@ -16,7 +16,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Price'
-  /prices/{brandId}/{productId}/{date}:
+  /prices/{brandId}/{productId}:
     get:
       operationId: findPrice
       summary: Find one price
@@ -35,7 +35,7 @@ paths:
               format: int64
             required: true
             description: Product ID
-          - in: path
+          - in: query
             name: date
             schema:
               type: string
