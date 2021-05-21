@@ -1,9 +1,9 @@
 package com.inditex.retail.pricing.prices.infrastructure.rest.spring;
 
-import com.inditex.retail.pricing.prices.core.repository.BookRepository;
-import com.inditex.retail.pricing.prices.core.service.BookService;
-import com.inditex.retail.pricing.prices.core.service.BookServiceImpl;
-import com.inditex.retail.pricing.prices.infrastructure.rest.spring.mapper.BookMapper;
+import com.inditex.retail.pricing.prices.core.repository.PriceRepository;
+import com.inditex.retail.pricing.prices.core.service.PriceService;
+import com.inditex.retail.pricing.prices.core.service.PriceServiceImpl;
+import com.inditex.retail.pricing.prices.infrastructure.rest.spring.mapper.PriceMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -13,12 +13,12 @@ import org.springframework.context.annotation.Configuration;
 public class ApplicationConfig {
 
     @Bean
-    public BookMapper bookMapper() {
-        return BookMapper.getInstance();
+    public PriceMapper priceMapper() {
+        return PriceMapper.getInstance();
     }
 
     @Bean
-    public BookService bookService(BookRepository bookRepository) {
-        return new BookServiceImpl(bookRepository);
+    public PriceService priceService(PriceRepository priceRepository) {
+        return new PriceServiceImpl(priceRepository);
     }
 }
