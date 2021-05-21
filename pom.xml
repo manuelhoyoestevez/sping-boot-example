@@ -22,6 +22,8 @@
 		<jackson-databind-nullable-version>0.2.1</jackson-databind-nullable-version>
 		<validation-api-version>2.0.1.Final</validation-api-version>
 		<openapi-generator-maven-plugin-version>5.1.0</openapi-generator-maven-plugin-version>
+		<moneta-version>1.1</moneta-version>
+		<log4jdbc-log4j2-jdbc4.1-version>1.16</log4jdbc-log4j2-jdbc4.1-version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -55,12 +57,10 @@
 			<artifactId>jackson-databind-nullable</artifactId>
 			<version>${jackson-databind-nullable-version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
@@ -79,13 +79,12 @@
 		<dependency>
 			<groupId>org.javamoney</groupId>
 			<artifactId>moneta</artifactId>
-			<version>1.1</version>
+			<version>${moneta-version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.bgee.log4jdbc-log4j2</groupId>
 			<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
-			<version>1.16</version>
+			<version>${log4jdbc-log4j2-jdbc4.1-version}</version>
 		</dependency>
 	</dependencies>
 	<build>

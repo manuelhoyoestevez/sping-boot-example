@@ -41,6 +41,7 @@ paths:
               type: string
               format: date-time
             required: true
+            example: 2017-07-21T17:32:28Z
             description: Application date
 
       responses:
@@ -83,7 +84,7 @@ components:
           type: string
           enum: [EUR, USD, GBP]
           description: Price currency ISO 4217 code
-          example: ISO
+          example: EUR
         price:
           type: number
           format: float
