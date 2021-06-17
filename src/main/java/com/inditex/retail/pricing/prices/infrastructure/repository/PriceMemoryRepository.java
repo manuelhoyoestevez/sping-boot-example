@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PriceMemoryRepository implements PriceRepository {
-    private List<Price> prices;
+    private final List<Price> prices;
 
     public PriceMemoryRepository(List<Price> prices) {
         this.prices = prices;

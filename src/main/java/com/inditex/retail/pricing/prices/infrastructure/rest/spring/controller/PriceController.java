@@ -16,9 +16,9 @@ import java.util.stream.Collectors;
 
 @RestController
 public class PriceController implements PricesApi {
-    private PriceMapper priceMapper;
+    private final PriceMapper priceMapper;
 
-    private PriceService priceService;
+    private final PriceService priceService;
 
     public PriceController(PriceMapper priceMapper, PriceService priceService) {
         this.priceMapper = priceMapper;

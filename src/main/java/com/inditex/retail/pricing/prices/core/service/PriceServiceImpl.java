@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class PriceServiceImpl implements PriceService {
-    private PriceRepository priceRepository;
+    private final PriceRepository priceRepository;
 
     public PriceServiceImpl(PriceRepository priceRepository) {
         this.priceRepository = priceRepository;
